@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string><%= database["name"] %></string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>name</key>
+			<string><%= database["user"] %>@<%= hosts[0] %></string>
+			<key>password</key>
+			<string><%= database["password"] %></string>
+			<key>port</key>
+			<integer>3306</integer>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>ssh_host</key>
+			<string><%= ssh["host"] %></string>
+			<key>ssh_user</key>
+			<string><%= ssh["user"] %></string>
+			<key>ssh_port</key>
+			<string><%= ssh["port"] %></string>
+			<key>ssh_keyLocation</key>
+			<string><%= ssh["private_key_path"][0] %></string>
+			<key>ssh_keyLocationEnabled</key>
+			<integer>1</integer>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPSSHTunnelConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string><%= database["user"] %></string>
+		</dict>
+		<key>session</key>
+		<dict/>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array/>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.39-MariaDB-log</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
