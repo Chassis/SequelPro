@@ -1,0 +1,61 @@
+require "erb"
+require "ostruct"
+
+module SequelPro
+	class Command < Vagrant.plugin(2, :command)
+		def self.synopsis
+			"open connection to MySQL in Sequel Pro"
+		end
+
+		def execute
+			config = Chassis.config
+
+			opts = OptionParser.new
+			argv = parse_options(opts)
+
+			@env.ui.info("Generating SPF file...")
+
+			# Load the SPF template
+			template_path = File.join(File.dirname(__FILE__), "template.spf")
+			template = ERB.new(File.read(template_path), nil, "%<>")
+
+			with_target_vms(argv) do |machine|
+				# Collect data
+				ssh_info = machine.ssh_info
+				raise Vagrant::Errors::SSHNotReady if ssh_info.nil?
+
+				data = {
+					"ssh" => {
+						"host" => ssh_info[:host],
+						"port" => ssh_info[:port],
+						"user" => ssh_info[:username],
+						"private_key_path" => ssh_info[:private_key_path],
+					}
+				}
+				data = config.merge(data)
+
+				# Output template
+				content = template.result OpenStruct.new(data).instance_eval { binding }
+
+				# Write it to the file
+				path = File.join(@env.local_data_path, "sequel.spf")
+				file = File.open(path, "w")
+				file.write(content)
+				file.close()
+
+				# And, open it.
+				system("open #{path}")
+			end
+
+			0
+		end
+	end
+
+	class SequelProPlugin < Vagrant.plugin("2")
+		name "Sequel Pro"
+
+		command "sequel" do
+			Command
+		end
+	end
+end
