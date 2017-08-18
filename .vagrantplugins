@@ -44,7 +44,7 @@ module SequelPro
 				file.close()
 
 				# And, open it.
-				system("open #{path}")
+				system("open \"#{path}\"")
 			end
 
 			0
