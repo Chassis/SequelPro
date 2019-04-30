@@ -18,7 +18,7 @@ extensions:
 - Chassis/SequelPro
 ```
 
-Clone this repository into your Chassis `extensions` directory.
+(For manual installation, clone this repository into your Chassis `extensions` directory.)
 
 
 ## Using
