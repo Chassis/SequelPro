@@ -5,6 +5,19 @@ Adds a handy `vagrant sequel` command to simplify access to your database.
 
 ## Installation
 
+We recommend [installing this extension globally](http://docs.chassis.io/en/latest/extend/#globally-installing-extensions) to make it available on every Chassis box.
+
+```
+git clone https://github.com/Chassis/SequelPro ~/.chassis/extensions/sequelpro
+```
+
+Alternatively to install this extension into a single Chassis box, add `Chassis/SequelPro` to your `extensions` list in your `config.local.yaml`:
+
+```yaml
+extensions:
+- Chassis/SequelPro
+```
+
 Clone this repository into your Chassis `extensions` directory.
 
 
