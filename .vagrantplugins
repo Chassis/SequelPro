@@ -24,15 +24,20 @@ module SequelPro
 				ssh_info = machine.ssh_info
 				raise Vagrant::Errors::SSHNotReady if ssh_info.nil?
 
-				data = {
-					"ssh" => {
-						"host" => ssh_info[:host],
-						"port" => ssh_info[:port],
-						"user" => ssh_info[:username],
-						"private_key_path" => ssh_info[:private_key_path],
+				# If we don't have custom SSH use the defaults
+				if ! config["ssh"]
+					data = {
+						"ssh" => {
+							"host" => ssh_info[:host],
+							"port" => ssh_info[:port],
+							"user" => ssh_info[:username],
+							"private_key_path" => ssh_info[:private_key_path],
+						}
 					}
-				}
-				data = config.merge(data)
+					data = config.merge(data)
+				elsif
+					data = config
+				end
 
 				# Output template
 				content = template.result OpenStruct.new(data).instance_eval { binding }

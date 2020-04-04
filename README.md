@@ -25,6 +25,24 @@ extensions:
 
 Simply run `vagrant sequel`.
 
+## Configuration
+
+The SequelPro extension allows for custom configuration options which can be added in one of your [configuation files](https://docs.chassis.io/en/latest/config/). Here's an example configuration:
+
+```
+# MySQL database details.
+database:
+    name: your_database
+    user: your_username
+    password: your_password
+	prefix: bq_
+ssh:
+    host: 10.1.2.3
+    user: custom_user
+    port: 33060
+    private_key_path:
+        - /Users/username/.vagrant.d/boxes/chassis-VAGRANTSLASH-chassis/3.0.3/virtualbox/vagrant_private_key
+```
 
 ## Connection Errors
 
