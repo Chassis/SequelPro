@@ -28,7 +28,8 @@ module SequelPro
 				if ! config["ssh"]
 					data = {
 						"ssh" => {
-							"host" => ssh_info[:host],
+							# Custom IP overrides default host
+							"host" => config["ip"] || ssh_info[:host],
 							"port" => ssh_info[:port],
 							"user" => ssh_info[:username],
 							"private_key_path" => ssh_info[:private_key_path],
