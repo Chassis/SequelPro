@@ -15,7 +15,7 @@ Alternatively to install this extension into a single Chassis box, add `chassis/
 
 ```yaml
 extensions:
-- chassis/sequelpro
+  - chassis/sequelpro
 ```
 
 (For manual installation, clone this repository into your Chassis `extensions` directory.)
