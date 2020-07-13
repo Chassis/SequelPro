@@ -38,6 +38,8 @@ database:
   prefix: bq_
 ```
 
+Sequel Pro connects to your MySQL database by tunnelling over the same SSH connection used for `vagrant ssh`, so no networking configuration is necessary.
+
 ## Connection Errors
 
 If you get a connection error, the first thing to attempt to debug is to check the details that Sequel Pro gives you (under the Show Details button).
