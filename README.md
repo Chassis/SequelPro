@@ -36,25 +36,6 @@ database:
   user: your_username
   password: your_password
   prefix: bq_
-ssh:
-  host: 10.1.2.3
-  user: custom_user
-  port: 33060
-  private_key_path:
-    - /Users/username/.vagrant.d/boxes/chassis-VAGRANTSLASH-chassis/3.0.3/virtualbox/vagrant_private_key
-```
-
-Any property you omit within the `ssh:` section will fall back to a default value, so you may specify for example only "port" or "user" without filling out every value.
-
-If your configuration file specifies a custom `ip:`, that value will be used as the default for the `ssh.host` property.
-
-```yaml
-# Example simplified configuration:
-# Use the default database values, a custom IP, and port 22
-ip: 10.86.73.15
-
-ssh:
-  port: 22
 ```
 
 ## Connection Errors

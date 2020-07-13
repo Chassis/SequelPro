@@ -24,25 +24,14 @@ module SequelPro
 				ssh_info = machine.ssh_info
 				raise Vagrant::Errors::SSHNotReady if ssh_info.nil?
 
-				ssh_config = {
-					# Custom IP overrides default host
-					"host" => config["ip"] || ssh_info[:host],
-					"port" => ssh_info[:port],
-					"user" => ssh_info[:username],
-					"private_key_path" => ssh_info[:private_key_path],
+				data = {
+					"ssh" => {
+						"host" => ssh_info[:host],
+						"port" => ssh_info[:port],
+						"user" => ssh_info[:username],
+						"private_key_path" => ssh_info[:private_key_path],
+					}
 				}
-
-				if ! config["ssh"]
-					# If we don't have custom SSH use the defaults
-					data = {
-						"ssh" => ssh_config
-					}
-				else
-					# Fall back to defaults for any unspecified custom SSH properties
-					data = {
-						"ssh" => ssh_config.merge(config["ssh"]),
-					}
-				end
 				data = config.merge(data)
 
 				# Output template
