@@ -2,6 +2,11 @@
 
 Adds a handy `vagrant sequel` command to simplify access to your database.
 
+Supported database clients include:
+
+* [Sequel Pro](https://github.com/sequelpro/sequelpro)
+* [Sequel Ace](https://github.com/Sequel-Ace/Sequel-Ace)
+* Any client that supports `.spf` files
 
 ## Installation
 
@@ -23,11 +28,11 @@ extensions:
 
 ## Usage
 
-Once the virtual machine is running, run `vagrant sequel` within the Chassis folder to open the VM's databases in Sequel Pro.
+Once the virtual machine is running, run `vagrant sequel` within the Chassis folder to open the VM's database in your client.
 
 ## Configuration
 
-The SequelPro extension allows for custom configuration options which can be added in one of your [configuration files](https://docs.chassis.io/en/latest/config/). Here's an example configuration:
+This extension allows for custom configuration options which can be added in one of your [configuration files](https://docs.chassis.io/en/latest/config/). Here's an example configuration:
 
 ```yaml
 # MySQL database details.
@@ -38,11 +43,13 @@ database:
   prefix: bq_
 ```
 
-Sequel Pro connects to your MySQL database by tunnelling over the same SSH connection used for `vagrant ssh`, so no networking configuration is necessary.
+The connection to your MySQL database is made by tunnelling over the same SSH connection used for `vagrant ssh`, so no networking configuration is necessary.
 
 ## Connection Errors
 
-If you get a connection error, the first thing to attempt to debug is to check the details that Sequel Pro gives you (under the Show Details button).
+If you get a connection error, the first thing to attempt to debug is to check the details that your client gives you.
+
+The connection error message can be very long and in Sequel Pro and Sequel Ace it may get truncated. You can click within the error message and press <kbd>cmd</kbd>+<kbd>a</kbd> then <kbd>cmd</kbd>+<kbd>c</kbd> to copy the full text.
 
 
 ### `key_load_public: No such file or directory`
