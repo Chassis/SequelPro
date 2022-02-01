@@ -4,7 +4,7 @@ Adds a handy `vagrant sequel` command to simplify access to your database.
 
 Supported database clients include:
 
-* [Sequel Pro](https://github.com/sequelpro/sequelpro)
+* [Sequel Pro](https://sequelpro.com/test-builds) **Note: The test build doesn't crash regularly**
 * [Sequel Ace](https://github.com/Sequel-Ace/Sequel-Ace)
 * Any client that supports `.spf` files
 
